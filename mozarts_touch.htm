@@ -1,0 +1,210 @@
+
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet">
+<title>Mozart's Touch: A Lightweight Multi-modal Music Generation Framework Based on Pre-Trained Large Models</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Content Representation</title>
+</head>
+
+</head>
+<body>
+
+    <div id="header" class="container-fluid">
+        <div class="row" style="text-align: center;">
+        <div class="row">
+            <h1>Mozart's Touch: A Lightweight Multi-modal Music Generation<br> Framework Based on Pre-Trained Large Models</h1>
+        </div>
+    </div>
+
+<div class="container">
+    <h2>Abstract</h2>
+    <p>
+        In recent years, AI-Generated Content (AIGC) has witnessed rapid advancements, facilitating the generation of music,
+        images, and other forms of artistic expression across various industries. However, researches on general multi-modal
+        music generation model remain scarce. To fill this gap, we propose a multi-modal music generation framework Mozart's
+        Touch. It could generate aligned music with the cross-modality inputs, such as images, videos and text. Mozart's Touch
+        is composed of three main components: Multi-modal Captioning Module, Large Language Model (LLM) Understanding & Bridging
+        Module, and Music Generation Module. Unlike traditional approaches, Mozart's Touch requires no training or fine-tuning
+        pre-trained models, offering efficiency and transparency through clear, interpretable prompts. We also introduce
+        "LLM-Bridge" method to resolve the heterogeneous representation problems between descriptive texts of different
+        modalities. We conduct a series of objective and subjective evaluations on the proposed model, and results indicate that
+        our model surpasses the performance of current state-of-the-art models.Our codes and examples
+        is availble at: <a href="https://github.com/WangTooNaive/MozartsTouch">https://github.com/WangTooNaive/MozartsTouch</a>.
+    </p>
+    <p>Check out our paper on arxiv for more information:  <a href="https://arxiv.org/abs/2405.02801">Here</a> .</p>
+</div>
+
+<div class="music-gen-wrapper">
+    <h1 style="text-align: center;"> Case Study </h1>
+<div class="music-gen-container" id="showcase">
+    <div class="music-gen-column music-gen-left">
+        <img src="img/case_study_1.jpg" alt="Classical portrait">
+        <div class="music-gen-description-box music-gen-original-description">
+            <p class="music-gen-description-title">Original description:</p>
+            <p>a painting of a man with white hair and a black jacket, a portrait inspired, baroque, classic portrait,
+                smug smirk, 18th century art</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_1.1.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music error">(Generated music: dull and tedious piano melody) ✗</p>
+        </div>
+        <div class="music-gen-description-box music-gen-converted-description">
+            <p class="music-gen-description-title">Converted description:</p>
+            <p>A classical chamber piece with intricate melodies, rich harmonies, and elegant phrasing, embodying the
+                sophistication of an 18th-century portrait.</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_1.2.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music success">(Generated music: classical and elegant piano melody) ✓</p>
+        </div>
+    </div>
+    <div class="music-gen-column music-gen-right">
+        <img src="img/case_study_2.jpg" alt="Anime girl on water">
+        <div class="music-gen-description-box music-gen-original-description">
+            <p class="music-gen-description-title">Original description:</p>
+            <p>a girl in a white dress standing in the water, an anime drawing, serial art, anime girl walking on water,
+                in style of Japanese Anime, blue sea.</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_2.1.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music error">(Generated music: Japanese traditional melody) ✗</p>
+        </div>
+        <div class="music-gen-description-box music-gen-converted-description">
+            <p class="music-gen-description-title">Converted description:</p>
+            <p>A serene piano melody accentuated with ethereal strings and delicate vocals, evoking a sense of beauty
+                and surrealism, akin to Japanese emotional anime soundtracks.</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_2.2.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music success">(Generated music: peaceful and soft anime-like melody) ✓</p>
+        </div>
+    </div>
+</div>
+<!-- <p ><br> In this part, we conduct a case study to analyze how our LLM
+Understanding & Bridging Module (LUBM) mitigates the problem
+of heterogeneous representations among different modalities. By
+showcasing some representative comparative examples,
+We demonstrate that the absence of the LUBM does indeed have
+adverse effects on the generation results.<br><br>
+The first example illustrates a portrait of Bach. Some keywords
+in the original image description disturb the generation of corre
+sponding music, as they focus on the attributes of image instead of
+that of music. <br><br>
+
+The second example illustrates an anime girl from a
+visual novel game Atri: My Dear Moments. This example shows that
+insufficiency of music attributions may also mislead the generation
+of music in a quite different way.</p> -->
+</div>
+
+<!-- <div class="container" id="showcase">
+    <h2> Case Study </h2>
+    <div class="music-gen-container">
+    <div class="music-gen-column music-gen-left">
+        <img src="img/case_study_1.jpg" alt="Classical portrait">
+        <div class="music-gen-description-box music-gen-original-description">
+            <p class="music-gen-description-title">Original description:</p>
+            <p style="font-size: 16px;">a painting of a man with white hair and a black jacket, a portrait inspired, baroque, classic portrait,
+                smug smirk, 18th century art</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_1.1.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music error">(Generated music: dull and tedious piano melody) ✗</p>
+        </div>
+        <div class="music-gen-description-box music-gen-converted-description">
+            <p class="music-gen-description-title">Converted description:</p>
+            <p style="font-size: 16px;">A classical chamber piece with intricate melodies, rich harmonies, and elegant phrasing, embodying the
+                sophistication of an 18th-century portrait.</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_1.2.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music success">(Generated music: classical and elegant piano melody) ✓</p>
+        </div>
+    </div>
+    <div class="music-gen-column music-gen-right">
+        <img src="img/case_study_2.jpg" alt="Anime girl on water">
+        <div class="music-gen-description-box music-gen-original-description">
+            <p class="music-gen-description-title">Original description:</p>
+            <p style="font-size: 16px;">a girl in a white dress standing in the water, an anime drawing, serial art, anime girl walking on water,
+                            in style of Japanese Anime, blue sea.</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_2.1.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music error">(Generated music: Japanese traditional melody) ✗</p>
+        </div>
+        <div class="music-gen-description-box music-gen-converted-description">
+            <p class="music-gen-description-title">Converted description:</p>
+            <p style="font-size: 16px;">A serene piano melody accentuated with ethereal strings and delicate vocals, evoking a sense of beauty
+                and surrealism, akin to Japanese emotional anime soundtracks.</p>
+            <audio controls class="sample_audio_mozart"><source src="audio/case_study_2.2.wav" type="audio/mpeg"></audio>
+            <p class="music-gen-music success">(Generated music: peaceful and soft anime-like melody) ✓</p>
+        </div>
+    </div>
+    </div>
+</div> -->
+
+<div class="container" id="abstractdiv">
+    <h2>Samples: comparison to prior work</h2>
+    <p>We compare Mozart's Touch with two prior work detailed in the paper:
+        <a href="https://crypto-code.github.io/M2UGen-Demo/">M2UGen</a>,
+        <a href="https://codi-gen.github.io/">CoDi</a>. <br>Examples are sampled from the same dataset <a href="https://huggingface.co/datasets/M2UGen/MUImage">MUImage</a>.
+    </p>
+    <table class="table table-responsive">
+        <thead>
+        <tr class="text-center">
+            <td>Picture</td>
+            <td><b>Ground Truth</b></td>
+            <td><b>Mozart's Touch</b></td>
+            <td><b>CoDi</b></td>
+            <td><b>M2UGen</b></td>
+        </tr>
+        </thead>
+        <tr>
+            <td><img src="img/1fdiocStUiA.jpg" alt="Sample Image" style="max-width: 150px;"></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/ground_truth/1fdiocStUiA.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/MozartsTouch/1fdiocStUiA.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/CoDi/1fdiocStUiA.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/M2UGen/1fdiocStUiA.wav" type="audio/mpeg"></audio></td>
+        </tr>
+        <tr>
+            <td><img src="img/1pGqXzCGP8w.jpg" alt="Sample Image" style="max-width: 150px;"></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/ground_truth/1pGqXzCGP8w.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/MozartsTouch/1pGqXzCGP8w.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/CoDi/1pGqXzCGP8w.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/M2UGen/1pGqXzCGP8w.wav" type="audio/mpeg"></audio></td>
+        </tr>
+        <tr>
+            <td><img src="img/1u6-sB6XPk4.jpg" alt="Sample Image" style="max-width: 150px;"></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/ground_truth/1u6-sB6XPk4.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/MozartsTouch/1u6-sB6XPk4.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/CoDi/1u6-sB6XPk4.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/M2UGen/1u6-sB6XPk4.wav" type="audio/mpeg"></audio></td>
+        </tr>
+        <tr>
+            <td><img src="img/1ubOluaAkdg.jpg" alt="Sample Image" style="max-width: 150px;"></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/ground_truth/1ubOluaAkdg.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/MozartsTouch/1ubOluaAkdg.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/CoDi/1ubOluaAkdg.mp3" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="audio/M2UGen/1ubOluaAkdg.wav" type="audio/mpeg"></audio></td>
+        </tr>
+        
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+function setupCallback(elem, elems) {
+  elem.addEventListener("play", function () {
+    for (var other of elems) {
+      if (other !== elem) {
+        other.pause();
+        // other.currentTime = 0.;
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.body.getElementsByTagName("audio");
+  for (var elem of elems) {
+    setupCallback(elem, elems);
+  }
+});
+</script>
+</body>
+</html>
