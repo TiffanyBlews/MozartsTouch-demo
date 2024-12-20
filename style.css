@@ -4,7 +4,6 @@ body {
   color: #333;
   font-size: 18px;
 }
-
 #page-wrap {
   width: 85%;
   max-width: 1000px;
@@ -22,7 +21,6 @@ h1 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .authors {
   color: #222;
   font-size: 22px;
@@ -51,67 +49,46 @@ h1 {
   margin-right: auto;
   margin-bottom: 10px;
 }
-
 .container-fluid {
   margin-top: 20px;
   margin-bottom: 16px;
 }
-
 .container {
   margin-top: 15px;
 }
 
 .sample_audio {
-  width: 100px;
+  width:120px;
 }
 
+
 .long_audio {
-  width: 500px;
+  width:500px;
 }
 
 
 .desc {
-  max-width: 300px;
+  max-width: 100px;
 }
-
 @media (min-width: 1000px) {
   .sample_audio {
-    width: 200px;
+    width:200px;
   }
 }
 
 @media (min-width: 1400px) {
   .container {
-    width: 1300px;
+      width: 1300px;
   }
-  
-  .music-gen-container {
-    width: 1300px;
-    display: flex;
-    border: 1px solid #ddd;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
   .sample_audio {
-    width: 200px;
+    width:200px;
   }
 }
 
 @media (min-width: 1600px) {
-  .container {
+.container {
     width: 1500px;
-  }
-
-  .music-gen-container {
-    width: 1500px;
-    display: flex;
-    border: 1px solid #ddd;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
 }
 
 
@@ -127,7 +104,6 @@ h1 {
   margin-right: auto;
   margin-bottom: 35px;
 }
-
 .thumbs {
   display: inline-block;
   width: 100%;
@@ -138,28 +114,24 @@ h1 {
   box-shadow: 1px 1px 3px #999;
   /* margin-bottom: 10px; */
 }
-
 .tftable {
-  color: #333333;
-  width: 100%;
+  color:#333333;
+  width:100%;
   border-width: 1px;
   border-color: #729ea5;
   border-collapse: collapse;
 }
-
 .tftable th {
-  background-color: #acc8cc;
+  background-color:#acc8cc;
   border-width: 1px;
   padding: 8px;
   border-style: solid;
   border-color: #729ea5;
-  text-align: left;
+  text-align:left;
 }
-
 .tftable tr {
-  background-color: #ffffff;
+  background-color:#ffffff;
 }
-
 .tftable td {
   border-width: 1px;
   padding: 8px;
@@ -167,9 +139,8 @@ h1 {
   border-color: #729ea5;
   font-size: 16px;
 }
-
 .tftable tr:hover {
-  background-color: #ffff99;
+  background-color:#ffff99;
 }
 
 h2 {
@@ -190,27 +161,88 @@ b {
 }
 
 .demos {
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+    text-align: center;
+  margin-top:30px;
+  margin-bottom:30px;
 }
 
 .demos .caption {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .margin-top {
-  margin-top: 3px;
+    margin-top:3px;
 }
 
 .margin-bottom {
-  margin-bottom: 3px;
+    margin-bottom:3px;
 }
 
 .nopadding {
-  padding: 0 !important;
-  margin: 0 !important;
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.music-gen-wrapper {
+    transform: scale(0.8);
+    /* 缩小至0.8倍 */
+    transform-origin: center;
+    /* 设置缩放中心为容器中心 */
+}
+
+.music-gen-container {
+    display: flex;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.music-gen-column {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.music-gen-left img,
+.music-gen-right img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.music-gen-description-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.music-gen-original-description {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.music-gen-converted-description {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.music-gen-description-title {
+    font-weight: bold;
+}
+
+.music-gen-music {
+    margin-top: 10px;
+}
+
+.music-gen-music.success {
+    color: #28a745;
+}
+
+.music-gen-music.error {
+    color: #dc3545;
 }
